@@ -1,0 +1,14 @@
+create database Brasileirao;
+
+create table Jogador(
+	idJogador int not null,
+    Nome varchar(50) not null,
+    data_de_nasc date not null,
+    categoria varchar(50) not null,
+    Peso float not null,
+    Altura float not null,
+    Posicao varchar(15) not null,
+    Num_gols int not null,
+    Num_Cartoes_Vermelhos int,
+    Num_Cartoes_Amarelos int,
+);
