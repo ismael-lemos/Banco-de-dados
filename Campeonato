@@ -1,3 +1,5 @@
+create database Campeonato;
+
 use Campeonato;
 
 create table Jogador(
@@ -10,12 +12,18 @@ create table Jogador(
     Posicao varchar(15) NOT NULL,
     Num_gols int NOT NULL,
     Num_Cartoes_Vermelhos int,
-    Num_Cartoes_Amarelos int
+    Num_Cartoes_Amarelos int,
+    primary key (Time_idTime),
+    primary key (Time_Jogador_idJogador),
+    Time_idTime1 int not null,
+    Time_Jogador_idJogador1 int not null,
+    Time_Serie_idSerie int not null
     );
     
     create table Time(
     idTime int NOT NULL,
     Nome varchar(50) NOT NULL,
+    Tecnico_nome varchar(50) not null,
     data_de_fundaçso date NOT NULL,
     sigla varchar(4) not null,
     N_vitorias int,
@@ -23,42 +31,39 @@ create table Jogador(
     saldo_de_gols int,
     N_de_partidas int,
     pontuacao int,
-    N_empates int
+    N_empates int,
+    primary key (Jogador_idJogador),
+    primary key (Serie_idSerie)
 );
 
 create table Jogo(
-	 idjogo int NOT NULL,
+	idjogo int NOT NULL,
 	N_de_gols int,
     Estadio varchar(50) NOT NULL,
     Data_da_partida DATE not null,
     Horario datetime not null,
-    resultado varchar(30) not null
+    resultado varchar(30) not null,
+    arbitro_nome varchar(50) not null,
+    primary key (Time_idTime),
+    primary key (Time_Jogador_idJogador),
+    primary key (Time_idTime1),
+    primary key (Time_Jogador_idJogador1)
 );
 
 create table infracoes(
 	Cartao_vermelho int,
     Cartao_amarelo int,
     total_de_faltas int,
-    idinfracao int NOT NULL
-);
-
-create table Arbitragem(
-	idarbitragem int NOT NULL,
-    Nome varchar(50) not null
-);
-
-create table Tecnico(
-	idtecnico int NOT NULL,
-    Nome varchar(50) not null
+    idinfracao int NOT NULL,
+    Jogo_ID_jogo int not null,
+    Jogo_Time_idTime int not null,
+    Time_Jogador_idJogador int not null,
+    Jogo_Time_idTime1 int not null,
+    Time_Jogador_idJogador1 int not null,
+    
 );
 
 create table Serie(
 	idserie int not null,
     Nome varchar(10)
 );
-
-
-
-
-
-    
