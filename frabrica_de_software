@@ -1,0 +1,16 @@
+create database frabrica_de_software;
+use  frabrica_de_software;
+
+create table Empregado(
+	idEmpregado int not null,
+    primary key (id),
+    Nome varchar(80)
+    horas_trabalhadas int
+    
+);
+
+create table gerente(
+	idGerente int not null,
+    primary key(id),
+    Nome varchar(80) not null
+);
